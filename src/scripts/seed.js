@@ -10,7 +10,7 @@ const {
   bancos,
   usuarios,
 } = require("../lib/placeholder-data/seed_data");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 
 async function seedEstados(client) {
   try {
@@ -617,18 +617,18 @@ async function crearTriggers(client) {
 async function main() {
   const client = await db.connect();
 
-  //await seedUsuarios(client);
-  //await seedEstados(client);
-  //await seedBancos(client);
-  //await seedEmpresa(client);
-  //await seedSociedades(client);
-  //await seedCentrosCosto(client);
-  //await seedCuentasContables(client);
-  //await seedProyectos(client);
-  //await seedGastos(client);
-  //await seedSolicitudesFondo(client);
+  await seedUsuarios(client);
+  await seedEstados(client);
+  await seedBancos(client);
+  await seedEmpresa(client);
+  await seedSociedades(client);
+  await seedCentrosCosto(client);
+  await seedCuentasContables(client);
+  await seedProyectos(client);
+  await seedGastos(client);
+  await seedSolicitudesFondo(client);
   await seedRendiciones(client);
-  //await seedProcesoAprobacion(client);
+  await seedProcesoAprobacion(client);
   //await crearTriggers(client);
 
   await client.end();
